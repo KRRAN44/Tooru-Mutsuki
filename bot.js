@@ -1,0 +1,164 @@
+ const makeWASocket = require('@whiskeysockets/baileys').default
+  const {
+    DisconnectReason,
+    useMultiFileAuthState,
+    makeCacheableSignalKeyStore
+  } = require('@whiskeysockets/baileys')
+
+  const { Boom } = require('@hapi/boom')
+  const P = require('pino')
+  const qrcode = require('qrcode-terminal')
+  const fs = require('fs')
+  const path = require('path')
+
+  const PREFIX = '!'
+  const logger = P({ level: 'silent' })
+
+  // Carga todos los comandos .js de src/commands
+  function loadCommands() {
+    const commands = new Map()
+    const commandsPath = path.join(__dirname, 'commands')
+
+    function readFolder(folder) {
+      if (!fs.existsSync(folder)) return
+
+      for (const file of fs.readdirSync(folder)) {
+        const filePath = path.join(folder, file)
+        const stats = fs.statSync(filePath)
+
+        if (stats.isDirectory()) {
+          readFolder(filePath)
+          continue
+        }
+
+        if (!file.endsWith('.js')) continue
+
+        const command = require(filePath)
+
+        if (!command.name || typeof command.execute !== 'function') {
+          console.log(`Comando ignorado: ${filePath}`)
+          continue
+        }
+
+        commands.set(command.name.toLowerCase(), command)
+
+        if (Array.isArray(command.aliases)) {
+          for (const alias of command.aliases) {
+            commands.set(alias.toLowerCase(), command)
+          }
+        }
+      }
+    }
+
+    readFolder(commandsPath)
+    console.log(`${commands.size} comandos cargados.`)
+
+    return commands
+  }
+
+  const commands = loadCommands()
+
+  function getMessageText(message) {
+    const content = message.message
+
+    return (
+      content?.conversation ||
+      content?.extendedTextMessage?.text ||
+      content?.imageMessage?.caption ||
+      content?.videoMessage?.caption ||
+      ''
+    )
+  }
+
+  async function startBot() {
+    const { state, saveCreds } = await useMultiFileAuthState(
+      path.join(__dirname, '../auth_info')
+    )
+
+    const sock = makeWASocket({
+      auth: {
+        creds: state.creds,
+        keys: makeCacheableSignalKeyStore(state.keys, logger)
+      },
+      logger,
+      markOnlineOnConnect: false,
+      syncFullHistory: false
+    })
+
+    sock.ev.on('creds.update', saveCreds)
+
+    sock.ev.on('connection.update', ({ connection, lastDisconnect, qr }) => {
+      if (qr) {
+        console.log('Escanea este código QR desde WhatsApp:')
+        qrcode.generate(qr, { small: true })
+      }
+
+      if (connection === 'open') {
+        console.log('✅ Bot conectado a WhatsApp.')
+      }
+
+      if (connection === 'close') {
+        const statusCode = new Boom(lastDisconnect?.error)?.output?.statusCode
+        const reconnect = statusCode !== DisconnectReason.loggedOut
+
+        console.log('Conexión cerrada.', reconnect ? 'Reconectando...' : 'Sesión cerrada.')
+
+        if (reconnect) {
+          startBot()
+        } else {
+          console.log('Elimina la carpeta auth_info y vuelve a vincular el bot.')
+        }
+      }
+    })
+
+    sock.ev.on('messages.upsert', async ({ messages, type }) => {
+      if (type !== 'notify') return
+
+      const message = messages[0]
+      if (!message.message || message.key.fromMe) return
+
+      const jid = message.key.remoteJid
+
+      // Ignora estados
+      if (jid === 'status@broadcast') return
+
+      const text = getMessageText(message).trim()
+
+      // Ejemplo: !ping o !menu
+      if (!text.startsWith(PREFIX)) return
+
+      const args = text.slice(PREFIX.length).trim().split(/\s+/)
+      const commandName = args.shift()?.toLowerCase()
+
+      if (!commandName) return
+
+      const command = commands.get(commandName)
+
+      if (!command) {
+        await sock.sendMessage(jid, {
+          text: `❌ El comando *${commandName}* no existe.`
+        })
+        return
+      }
+
+      try {
+        await command.execute({
+          sock,
+          message,
+          jid,
+          args,
+          text,
+          prefix: PREFIX,
+          commands
+        })
+      } catch (error) {
+        console.error(`Error en ${commandName}:`, error)
+
+        await sock.sendMessage(jid, {
+          text: '❌ Ocurrió un error al ejecutar ese comando.'
+        })
+      }
+    })
+  }
+
+  startBot()

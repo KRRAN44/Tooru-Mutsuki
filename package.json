@@ -1,0 +1,26 @@
+{
+  "name": "vanity-kn4424",
+  "version": "1.0.0",
+  "description": "<a href=\"https://whatsapp.com/channel/0029VbD6l1qKwqSTG4FmPK2D\">\r   <img src=\"https://img.shields.io/badge/CANAL%20OFICIAL%20💻-25D366?style=for-the-badge&logo=whatsapp&logoColor=white\">\r </a>",
+  "main": "bot-viejo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KRRAN44/Vanity-Bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/KRRAN44/Vanity-Bot/issues"
+  },
+  "homepage": "https://github.com/KRRAN44/Vanity-Bot#readme",
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@whiskeysockets/baileys": "^7.0.0-rc14",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
