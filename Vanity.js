@@ -159,6 +159,43 @@
         })
       }
     })
+
+    sock.ev.on('group-participants.update', async (update) => {
+    try {
+        const { id, participants, action } = update
+
+        if (action !== 'add') return
+
+        const configPath = path.join(__dirname, 'config.json')
+
+        if (!fs.existsSync(configPath)) return
+
+        const config = JSON.parse(
+            fs.readFileSync(configPath, 'utf8')
+        )
+
+        const bienvenida = config.bienvenidas?.[id]
+
+        if (!bienvenida || !bienvenida.enabled || !bienvenida.text) {
+            return
+        }
+
+       for (const participant of participants) {
+    const jid = typeof participant === 'string' ? participant : participant?.id;
+
+    if (!jid) continue;
+
+    await sock.sendMessage(id, {
+        text: `👋 @${jid.split('@')[0]} ${bienvenida.text}`,
+        mentions: [jid]
+    });
+  }
+
+    } catch (error) {
+        console.error('Error en bienvenida:', error)
+    }
+})
+
   }
 
   startBot()
