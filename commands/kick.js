@@ -31,12 +31,12 @@ async execute({ sock, message, jid }) {
         });
     }
 
-    // Comprobar que el bot sea administrador
-    const botId = sock.user.id.split(':')[0] + '@s.whatsapp.net';
-
-    const botData = participants.find(
-        p => p.id === botId
-    );
+   const botNumber = sock.user.id.split(':')[0].split('@')[0];
+const botData = participants.find(p => {
+    const idNumber = p.id?.split('@')[0];
+    const phoneNumber = p.phoneNumber?.split('@')[0];
+    return idNumber === botNumber || phoneNumber === botNumber;
+});
 
     const botIsAdmin =
         botData?.admin === 'admin' ||
