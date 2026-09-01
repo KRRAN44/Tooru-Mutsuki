@@ -1,7 +1,7 @@
 const fs = require('fs'); const path = require('path');
-module.exports = { name: 'menu', aliases: ['Menu', 'xyz'],
+module.exports = { name: 'menuAdm', aliases: ['MenuAdm', 'xyz'],
 async execute({ sock, jid }) {
-    const menuPath = path.join(__dirname, '../textos/menu.txt');
+    const menuPath = path.join(__dirname, '../textos/menuAdm.txt');
 
     const menu = fs.readFileSync(menuPath, 'utf8');
 

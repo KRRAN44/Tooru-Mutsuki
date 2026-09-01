@@ -6,7 +6,7 @@
       const inicio = Date.now()
 
       await sock.sendMessage(jid, {
-        text: '─   ┄᪶    ┄    ┄    ┄᪶    ┄   ─\n🏷 *Vanity-Bot* conectado correctamente\n─   ┄᪶    ┄    ┄    ┄᪶    ┄   ─'
+        text: '─   ┄᪶    ┄    ┄    ┄᪶    ┄   ─\n🏷 *Tooru Mutsuki* conectado correctamente\n─   ┄᪶    ┄    ┄    ┄᪶    ┄   ─'
       })
 
       const ping = Date.now() - inicio
