@@ -165,7 +165,7 @@ const args = commandText.slice(commandName.length).trimStart()
     try {
         const { id, participants, action } = update
 
-        if (action !== 'add' && action !== 'remove') return
+        if (action !== 'add') return
 
         const configPath = path.join(__dirname, 'config.json')
 
@@ -175,12 +175,9 @@ const args = commandText.slice(commandName.length).trimStart()
             fs.readFileSync(configPath, 'utf8')
         )
 
-        const clave = action === 'add' ? 'bienvenidas' : 'despedidas'
-        const emoji = action === 'add' ? '👋' : '👋😢'
+        const bienvenida = config.bienvenidas?.[id]
 
-        const ajuste = config[clave]?.[id]
-
-        if (!ajuste || !ajuste.enabled || !ajuste.text) {
+        if (!bienvenida || !bienvenida.enabled || !bienvenida.text) {
             return
         }
 
@@ -190,15 +187,14 @@ const args = commandText.slice(commandName.length).trimStart()
     if (!jid) continue;
 
     await sock.sendMessage(id, {
-        text: `${emoji} @${jid.split('@')[0]} ${ajuste.text}`,
+        text: `👋 @${jid.split('@')[0]} ${bienvenida.text}`,
         mentions: [jid]
     });
   }
 
     } catch (error) {
-        console.error('Error en bienvenida/despedida:', error)
+        console.error('Error en bienvenida:', error)
     }
-
 })
 
   }

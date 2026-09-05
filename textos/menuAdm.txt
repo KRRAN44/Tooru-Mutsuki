@@ -8,8 +8,19 @@
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
       𝚳𝚵𝚴𝐔 🐆͢⃝ 𝜦𝑫𝜧
  `┆🥥⃟ꪶ┄꯭ !Bienvenida` - *Establece una Bienvenida...*
- 
  `┆🥥⃟ꪶ┄꯭ !#Bienvenida` - *Activa // Desactiva la Bienvenida...*
+
+
+ `┆🥥⃟ꪶ┄꯭ !Promote @` - *Asciende a admin un usuario...*
+ `┆🥥⃟ꪶ┄꯭ !Demote @` - *Rebaja de admin un usuario...*
+
+
+ `┆🥥⃟ꪶ┄꯭ !kick @` - *Expulsa un usuario...*
+
+
+ `┆🥥⃟ꪶ┄꯭ !Warn @` - *Añade una advertencia a un usuario...*
+ `┆🥥⃟ꪶ┄꯭ !Unwarn @` - *Quita una advertencia a un usuario...*
+ `┆🥥⃟ꪶ┄꯭ !Warnlist @` - *Muestra la lista de advertidos...*
  
  ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┏━━╸╸╸╸╸╸╸╯🎍╭͢
