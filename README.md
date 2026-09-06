@@ -7,27 +7,34 @@
   <img src="https://img.shields.io/badge/CANAL%20OFICIAL%20💻-25D366?style=for-the-badge&logo=whatsapp&logoColor=white">
 </a>
 
+1. - Da permisos de almacenamiento
 ```bash
 termux-setup-storage
 ```
+2. - Instala pkg 
 ```bash
 pkg update -y && pkg upgrade -y
 ```
+3. - Instala Node 
 ```bash
 pkg install nodejs git -y
 ```
+4. - Clona el repositorio
 ```bash
-git clone https://github.com/KRRAN44/Tooru-Mutsuki.git
+git clone https://github.com/KRRAN44/Tooru-Mutsuki.git 
 ```
+5. - Abre la carpeta
 ```bash
 cd Tooru-Mutsuki
 ```
+6. - Instala librerias
 ```bash
 npm install
 ```
 ```bash
 npm install --cpu=was32 sharp
 ```
+7. - Inicia bot
 ```bash
 node Tooru-Mutsuki.js
 ```
