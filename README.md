@@ -7,6 +7,7 @@
   <img src="https://img.shields.io/badge/CANAL%20OFICIAL%20💻-25D366?style=for-the-badge&logo=whatsapp&logoColor=white">
 </a>
 
+# pasos de instalacion....
 1. - Da permisos de almacenamiento
 ```bash
 termux-setup-storage
