@@ -29,5 +29,5 @@ npm install
 npm install --cpu=was32 sharp
 ```
 ```bash
-node Tooru-Mutsuki.js && \
+node Tooru-Mutsuki.js
 ```
