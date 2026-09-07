@@ -14,11 +14,11 @@ termux-setup-storage
 ```
 2. - Instala pkg 
 ```bash
-pkg update -y && pkg upgrade -y
+pkg update && pkg upgrade -y
 ```
 3. - Instala Node 
 ```bash
-pkg install nodejs git -y
+pkg install -y git nodejs libvips python make clang
 ```
 4. - Clona el repositorio
 ```bash
@@ -33,7 +33,7 @@ cd Tooru-Mutsuki
 npm install
 ```
 ```bash
-npm install --cpu=was32 sharp
+npm install sharp @img/sharp-wasm32
 ```
 7. - Inicia bot
 ```bash

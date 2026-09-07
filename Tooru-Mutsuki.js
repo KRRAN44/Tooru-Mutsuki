@@ -119,11 +119,30 @@
 
       const jid = message.key.remoteJid
 
-      // Ignora estados
+     // Ignora estados
       if (jid === 'status@broadcast') return
 
-      const text = getMessageText(message).trim()
+      if (jid.endsWith('@g.us')) {
+        const autor = message.key.participant || message.key.remoteJid;
+        const configPath = path.join(__dirname, 'config.json');
 
+        if (fs.existsSync(configPath)) {
+          const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+
+          // Usuario muteado: se borra el mensaje y no se sigue procesando
+          if (config.mutes?.[jid]?.[autor]) {
+            try {
+              await sock.sendMessage(jid, { delete: message.key });
+            } catch (error) {
+              console.error('Error al borrar mensaje de usuario muteado:', error);
+            }
+            return;
+          }
+        }
+      }
+
+      const text = getMessageText(message).trim()
+      
       // Ejemplo: !ping o !menu
       if (!text.startsWith(PREFIX)) return
 
