@@ -11,6 +11,10 @@
  `┆🥥⃟ꪶ┄꯭ !#Bienvenida` - *Activa // Desactiva la Bienvenida...*
 
 
+ `┆🥥⃟ꪶ┄꯭ !despedida` - *Establece una Despedida...*
+ `┆🥥⃟ꪶ┄꯭ !#despedida` - *Activa // Desactiva la Despedida...*
+
+
  `┆🥥⃟ꪶ┄꯭ !Promote @` - *Asciende a admin un usuario...*
  `┆🥥⃟ꪶ┄꯭ !Demote @` - *Rebaja de admin un usuario...*
 
@@ -18,9 +22,17 @@
  `┆🥥⃟ꪶ┄꯭ !kick @` - *Expulsa un usuario...*
 
 
+ `┆🥥⃟ꪶ┄꯭ !delete (!del, !d)` - *Borra un mensaje citado*
+
+
  `┆🥥⃟ꪶ┄꯭ !Warn @` - *Añade una advertencia a un usuario...*
  `┆🥥⃟ꪶ┄꯭ !Unwarn @` - *Quita una advertencia a un usuario...*
  `┆🥥⃟ꪶ┄꯭ !Warnlist @` - *Muestra la lista de advertidos...*
+
+
+ `┆🥥⃟ꪶ┄꯭ !mute` - *mutea a un miembro y elimina sus mensajes...*
+ `┆🥥⃟ꪶ┄꯭ !unmute` - *desactiva el muteo...*
+
  
  ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┏━━╸╸╸╸╸╸╸╯🎍╭͢

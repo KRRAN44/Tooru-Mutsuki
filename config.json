@@ -23,5 +23,11 @@
       "text": "By",
       "enabled": false
     }
+  },
+  "mutes": {
+    "120363410240560408@g.us": {
+      "238045089525848@lid": true,
+      "4915124477722@s.whatsapp.net": true
+    }
   }
 }
