@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/KRRAN44/Tooru-Mutsuki#readme",
   "dependencies": {
+    "sharp": "0.35.4",
+    "@img/sharp-wasm32": "^0.35.4",
     "@hapi/boom": "^10.0.1",
     "@whiskeysockets/baileys": "^7.0.0-rc14",
     "qrcode-terminal": "^0.12.0"
