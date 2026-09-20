@@ -2,7 +2,7 @@ module.exports = { name: 'demote', aliases: ['quitaradmin'], async execute({ soc
 // Solo funciona en grupos
 if (!jid.endsWith('@g.us')) {
     return await sock.sendMessage(jid, {
-        text: '❌ Este comando solo funciona en grupos.'
+        text:  `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮 𝑹 𝑹 𝜣 𝑹 !!\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
     });
 }
 
@@ -25,7 +25,7 @@ const isAdmin =
 
 if (!isAdmin) {
     return await sock.sendMessage(jid, {
-        text: '❌ Solo los administradores pueden usar este comando.'
+        text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑺𝜣𝑳𝜣 𝜟𝑫𝜧𝜤𝜨𝑺 𝜝𝑹𝜣...\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
     });
 }
 
@@ -42,7 +42,7 @@ const botIsAdmin =
 
 if (!botIsAdmin) {
     return await sock.sendMessage(jid, {
-        text: '❌ Necesito ser administrador para quitar administrador.'
+        text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮𝑹𝑹𝜣𝑹 !! 𝜨𝜣 𝑺𝜣𝜳 𝜟𝑫𝜧\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
     });
 }
 
@@ -52,7 +52,7 @@ const mentioned =
 
 if (!mentioned || mentioned.length === 0) {
     return await sock.sendMessage(jid, {
-        text: '❌ Menciona a la persona que quieres quitarle el administrador.\n\nEjemplo: !demote @usuario'
+        text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜟 𝑸𝑼𝜤𝜮𝜨 𝑫𝜮𝜝𝜣 𝜝𝜟𝑱𝜟𝑹 𝑫𝜮 𝜟𝑫𝜧𝜤𝜨???\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
     });
 }
 
@@ -65,7 +65,7 @@ const targetData = participants.find(
 
 if (!targetData) {
     return await sock.sendMessage(jid, {
-        text: '❌ No encontré a ese usuario en el grupo.'
+        text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮𝑺𝜮 𝜧𝜣𝜨𝜣 𝜨𝜣 𝜮𝑺𝜯𝜟 𝜮𝜨 𝜮𝑺𝜯𝜮 𝑮𝑹𝑼𝜬𝜣......\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
     });
 }
 
@@ -74,7 +74,7 @@ if (
     targetData.admin !== 'superadmin'
 ) {
     return await sock.sendMessage(jid, {
-        text: '⚠️ Ese usuario ya no es administrador.'
+        text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜨𝑼𝜨𝑪𝜟 𝑭𝑼𝜮 𝜟𝑫𝜧𝜤𝜨.... 𝑳𝜣𝑳..\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
     });
 }
 
@@ -87,14 +87,14 @@ try {
     );
 
     await sock.sendMessage(jid, {
-        text: '📉 Administrador removido correctamente.'
+        text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜢𝜮𝑪𝜢𝜣 \n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
     });
 
 } catch (error) {
     console.error('Error en demote:', error);
 
     await sock.sendMessage(jid, {
-        text: '❌ No pude quitarle el administrador a ese usuario.'
+        text:  `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮 𝑹 𝑹 𝜣 𝑹 !!\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
     });
 }
 } };

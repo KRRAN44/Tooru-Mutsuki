@@ -10,7 +10,7 @@ module.exports = {
     async execute({ sock, jid, args }) {
         if (!jid.endsWith('@g.us')) {
             return sock.sendMessage(jid, {
-                text: '❌ Este comando solo funciona en grupos.'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮 𝑹 𝑹 𝜣 𝑹 !!\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -18,7 +18,7 @@ module.exports = {
 
         if (!texto) {
             return sock.sendMessage(jid, {
-                text: '❌ Usa:\n!despedida Nos vemos, te vamos a extrañar 👋'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜟𝑮𝑹𝜮𝑮𝜟 𝜯𝜮𝜲𝜯𝜣 𝜟 𝑳𝜟 𝑫𝜮𝑺𝜬𝜮𝑫𝜤𝑫𝜟\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -47,7 +47,7 @@ module.exports = {
         await sock.sendMessage(jid, {
             text: `
             
-┌ ┄ ┄ ͢┄┘ꪶ🎋ꫂ└ ┄ ┄ ┐\n\n╭🍓ꫂ ╴ ${texto}\n┇       𠖱̷̸   𝐒𝒕 : 𝙰𝙲𝚃𝙸𝚅𝙰𝙳𝙾 🫰\n─   ┄᪶    ┄    ┄    ┄᪶    ┄   ─
+┌ ┄ ┄ ͢┄┘ꪶ🎋ꫂ└ ┄ ┄ ┐\n\n╭🍓ꫂ ╴ ${texto}\n┇              𝙰𝙲𝚃𝙸𝚅𝙰𝙳𝙾 🫰\n─   ┄᪶    ┄    ┄    ┄᪶    ┄   ─
             
             `
         });

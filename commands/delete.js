@@ -5,7 +5,7 @@ module.exports = {
     async execute({ sock, message, jid }) {
         if (!jid.endsWith('@g.us')) {
             return sock.sendMessage(jid, {
-                text: '❌ Este comando solo funciona en grupos.'
+                text:  `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮 𝑹 𝑹 𝜣 𝑹 !!\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -20,7 +20,7 @@ module.exports = {
 
         if (!isAdmin) {
             return sock.sendMessage(jid, {
-                text: '❌ Solo los administradores pueden usar este comando.'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑺𝜣𝑳𝜣 𝜟𝑫𝜧𝜤𝜨𝑺 𝜝𝑹𝜣...\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -36,7 +36,7 @@ module.exports = {
 
         if (!botIsAdmin) {
             return sock.sendMessage(jid, {
-                text: '❌ Necesito ser administrador para borrar mensajes.'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮𝑹𝑹𝜣𝑹 !! 𝜨𝜣 𝑺𝜣𝜳 𝜟𝑫𝜧\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -46,7 +46,7 @@ module.exports = {
 
         if (!stanzaId) {
             return sock.sendMessage(jid, {
-                text: '❌ Responde al mensaje que quieres borrar y escribe !delete.'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑸𝑼𝜮 𝑫𝜮𝜝𝜣 𝜝𝜣𝑹𝑹𝜟𝑹?\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -63,7 +63,7 @@ module.exports = {
             console.error('Error al borrar mensaje:', error);
 
             await sock.sendMessage(jid, {
-                text: '❌ No pude borrar ese mensaje.'
+                text:  `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮 𝑹 𝑹 𝜣 𝑹 !!\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
     }

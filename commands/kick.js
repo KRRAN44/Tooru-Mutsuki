@@ -4,7 +4,8 @@ async execute({ sock, message, jid }) {
     // Solo funciona en grupos
     if (!jid.endsWith('@g.us')) {
         return await sock.sendMessage(jid, {
-            text: '❌ Este comando solo funciona en grupos.'
+            text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮 𝑹 𝑹 𝜣 𝑹 !!\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
+        
         });
     }
 
@@ -27,7 +28,7 @@ async execute({ sock, message, jid }) {
 
     if (!isAdmin) {
         return await sock.sendMessage(jid, {
-            text: '❌ Solo los administradores pueden usar este comando.'
+            text:  `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑺𝜣𝑳𝜣 𝜟𝑫𝜧𝜤𝜨𝑺 𝜝𝑹𝜣...\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
         });
     }
 
@@ -44,7 +45,7 @@ const botData = participants.find(p => {
 
     if (!botIsAdmin) {
         return await sock.sendMessage(jid, {
-            text: '❌ Necesito ser administrador para poder expulsar usuarios.'
+            text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮𝑹𝑹𝜣𝑹 !! 𝜨𝜣 𝑺𝜣𝜳 𝜟𝑫𝜧\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
         });
     }
 
@@ -54,7 +55,7 @@ const botData = participants.find(p => {
 
     if (!mentioned || mentioned.length === 0) {
         return await sock.sendMessage(jid, {
-            text: '❌ Menciona a la persona que quieres expulsar.\n\nEjemplo: !kick @usuario'
+            text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜧𝜮𝜨𝑪𝜤𝜣𝜨𝜟 𝜟 𝜟𝑳𝑮𝑼𝜤𝜮𝜨 𝜬𝜟𝑹𝜟 𝑺𝜟𝑪𝜟𝑹\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
         });
     }
 
@@ -70,7 +71,8 @@ const botData = participants.find(p => {
         targetData?.admin === 'superadmin'
     ) {
         return await sock.sendMessage(jid, {
-            text: '❌ No puedes expulsar a otro administrador.'
+            text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜨𝜣 𝜬𝑼𝜮𝑫𝜮𝑺 𝑺𝜟𝑪𝜟𝑹 𝜣𝜯𝑹𝜣 𝜟𝑫𝜧𝜤𝜨....\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
+
         });
     }
 
@@ -82,14 +84,16 @@ const botData = participants.find(p => {
         );
 
         await sock.sendMessage(jid, {
-            text: '✅ Usuario expulsado correctamente.'
+            text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑮𝑮 𝑺𝜮 𝑭𝑼𝜮\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
+
         });
 
     } catch (error) {
         console.error('Error en kick:', error);
 
         await sock.sendMessage(jid, {
-            text: '❌ No pude expulsar a ese usuario.'
+            text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮𝑹𝜣𝑹 𝜟𝑳 𝜮𝑳𝜤𝜧𝜤𝜨𝜟𝑹..\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
+
         });
     }
 }

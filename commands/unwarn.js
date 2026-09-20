@@ -9,7 +9,7 @@ module.exports = {
     async execute({ sock, message, jid }) {
         if (!jid.endsWith('@g.us')) {
             return sock.sendMessage(jid, {
-                text: '❌ Este comando solo funciona en grupos.'
+                text:  `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮 𝑹 𝑹 𝜣 𝑹 !!\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -24,7 +24,7 @@ module.exports = {
 
         if (!isAdmin) {
             return sock.sendMessage(jid, {
-                text: '❌ Solo los administradores pueden usar este comando.'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑺𝜣𝑳𝜣 𝜟𝑫𝜧𝜤𝜨𝑺 𝜝𝑹𝜣...\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -33,7 +33,7 @@ module.exports = {
 
         if (!mentioned || mentioned.length === 0) {
             return sock.sendMessage(jid, {
-                text: '❌ Menciona a la persona a la que quieres quitarle una advertencia.\n\nEjemplo: !#warn @usuario'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜧𝜮𝜨𝑪𝜤𝜣𝜨𝜟 𝜟 𝑸𝑼𝜤𝜮𝜨 𝑸𝑼𝜤𝜮𝑹𝜟𝑺 𝑸𝑼𝜤𝜯𝜟𝑹𝑳𝜮 𝜟𝑫𝑽𝜮𝑹𝜯𝜮𝜨𝑪𝜤𝜟𝑺...\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -48,7 +48,7 @@ module.exports = {
 
         if (actual <= 0) {
             return sock.sendMessage(jid, {
-                text: '⚠️ Ese usuario no tiene advertencias.'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮𝑺𝜮 𝜧𝜣𝜨𝜣 𝜮𝑺𝜯𝜟 𝑳𝜤𝜧𝜬𝜤𝜣 𝑫𝜮 𝑾𝜟𝑹𝜨𝑺\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -63,7 +63,8 @@ module.exports = {
         fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
 
         await sock.sendMessage(jid, {
-            text: `✅ Advertencia removida. Va en ${nuevo}/4.`
+            text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜟𝑫𝑽𝜮𝑹𝜯𝜮𝜨𝑪𝜤𝜟 𝑹𝜮𝜧𝜣𝑽𝜤𝑫𝜟.. ${nuevo}/4\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
+
         });
     }
 };

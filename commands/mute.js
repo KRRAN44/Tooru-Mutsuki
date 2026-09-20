@@ -9,7 +9,7 @@ module.exports = {
     async execute({ sock, message, jid }) {
         if (!jid.endsWith('@g.us')) {
             return sock.sendMessage(jid, {
-                text: '❌ Este comando solo funciona en grupos.'
+                text:  `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮 𝑹 𝑹 𝜣 𝑹 !!\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -24,7 +24,7 @@ module.exports = {
 
         if (!isAdmin) {
             return sock.sendMessage(jid, {
-                text: '❌ Solo los administradores pueden usar este comando.'
+                text:  `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑺𝜣𝑳𝜣 𝜟𝑫𝜧𝜤𝜨𝑺 𝜝𝑹𝜣...\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -33,7 +33,7 @@ module.exports = {
 
         if (!mentioned || mentioned.length === 0) {
             return sock.sendMessage(jid, {
-                text: '❌ Menciona a la persona que quieres mutear.\n\nEjemplo: !mute @usuario'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜧𝜮𝜨𝑪𝜤𝜣𝜨𝜟 𝜟 𝑸𝑼𝜤𝜮𝜨 𝑸𝑼𝜤𝜮𝑹𝜮𝑺 𝜧𝑼𝜯𝜮𝜟𝑹\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -60,7 +60,7 @@ module.exports = {
         fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
 
         await sock.sendMessage(jid, {
-            text: '🔇 Usuario silenciado. Sus mensajes se van a borrar automáticamente.'
+            text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑪𝜟𝑳𝑳𝜮𝑺𝜮 𝜮𝑳 𝜢𝜣𝑺𝜤𝑪𝜣... 𝑼𝑺𝑼𝜟𝑹𝜤𝜣 𝜧𝑼𝜯𝜮𝜟𝑫𝜣\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
         });
     }
 };

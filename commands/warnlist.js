@@ -10,7 +10,7 @@ module.exports = {
     async execute({ sock, jid }) {
         if (!jid.endsWith('@g.us')) {
             return sock.sendMessage(jid, {
-                text: '❌ Este comando solo funciona en grupos.'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮 𝑹 𝑹 𝜣 𝑹 !!\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -24,7 +24,7 @@ module.exports = {
 
         if (usuarios.length === 0) {
             return sock.sendMessage(jid, {
-                text: '✅ Nadie tiene advertencias en este grupo.'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜨𝜟𝑫𝜤𝜮 𝑪𝜣𝜨 𝜟𝑫𝑽𝜮𝑹𝜯𝜮𝜨𝑪𝜤𝜟𝑺, 𝜯𝜣𝑫𝜣𝑺 𝑺𝜟𝜨𝜤𝜯𝜣𝑺\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -33,7 +33,7 @@ module.exports = {
             .join('\n');
 
         await sock.sendMessage(jid, {
-            text: `📋 *Advertencias en este grupo:*\n\n${lista}`,
+            text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜟𝑫𝑽𝜮𝑹𝜯𝜮𝜨𝑪𝜤𝜟𝑺...\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n\n${lista}`,
             mentions: usuarios
         });
     }

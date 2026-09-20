@@ -1,11 +1,12 @@
 const sharp = require('sharp');
-const { downloadMediaMessage } = require('@whiskeysockets/baileys');
 
 module.exports = {
     name: 'sticker',
     aliases: ['s'],
 
     async execute({ sock, message, jid }) {
+        const { downloadMediaMessage } = await import('@whiskeysockets/baileys');
+
         const contextInfo = message.message?.extendedTextMessage?.contextInfo;
         const quoted = contextInfo?.quotedMessage;
 
@@ -18,7 +19,7 @@ module.exports = {
 
         if (!tieneImagen) {
             return sock.sendMessage(jid, {
-                text: '❌ Envía una imagen con el comando !sticker, o responde a una imagen con !sticker.'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑹𝜮𝑺𝜬𝜣𝜨𝑫𝜮 𝑼𝜨𝜟 𝜤𝜧𝜟𝑮𝜮𝜨 𝑪𝜣𝜨 !𝑺 𝜣 !𝑺𝜯𝜤𝑪𝜥𝜮𝑹\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -38,7 +39,7 @@ module.exports = {
             console.error('Error creando sticker:', error);
 
             await sock.sendMessage(jid, {
-                text: '❌ No pude convertir esa imagen en sticker.'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜨𝜣 𝑺𝜮 𝜬𝑼𝜮𝑫𝜮 𝜢𝜟𝑪𝜮𝑹 𝑺𝜯𝜤𝑪𝜥𝜮𝑹\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
     }

@@ -1,11 +1,4 @@
- const makeWASocket = require('@whiskeysockets/baileys').default
-  const {
-    DisconnectReason,
-    useMultiFileAuthState,
-    makeCacheableSignalKeyStore
-  } = require('@whiskeysockets/baileys')
-
-  const { Boom } = require('@hapi/boom')
+const { Boom } = require('@hapi/boom')
   const P = require('pino')
   const qrcode = require('qrcode-terminal')
   const fs = require('fs')
@@ -71,6 +64,13 @@
   }
 
   async function startBot() {
+    const {
+      default: makeWASocket,
+      DisconnectReason,
+      useMultiFileAuthState,
+      makeCacheableSignalKeyStore
+    } = await import('@whiskeysockets/baileys')
+
     const { state, saveCreds } = await useMultiFileAuthState(
       path.join(__dirname, '../auth_info')
     )

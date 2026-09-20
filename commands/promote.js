@@ -4,7 +4,7 @@ async execute({ sock, message, jid }) {
     // Solo funciona en grupos
     if (!jid.endsWith('@g.us')) {
         return await sock.sendMessage(jid, {
-            text: '❌ Este comando solo funciona en grupos.'
+            text:  `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮 𝑹 𝑹 𝜣 𝑹 !!\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
         });
     }
 
@@ -27,7 +27,7 @@ async execute({ sock, message, jid }) {
 
     if (!isAdmin) {
         return await sock.sendMessage(jid, {
-            text: '❌ Solo los administradores pueden usar este comando.'
+            text:  `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑺𝜣𝑳𝜣 𝜟𝑫𝜧𝜤𝜨𝑺 𝜝𝑹𝜣...\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
         });
     }
 
@@ -43,7 +43,7 @@ const botIsAdmin =
 
     if (!botIsAdmin) {
         return await sock.sendMessage(jid, {
-            text: '❌ Necesito ser administrador para dar administrador.'
+            text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮𝑹𝑹𝜣𝑹 !! 𝜨𝜣 𝑺𝜣𝜳 𝜟𝑫𝜧\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
         });
     }
 
@@ -53,7 +53,7 @@ const botIsAdmin =
 
     if (!mentioned || mentioned.length === 0) {
         return await sock.sendMessage(jid, {
-            text: '❌ Menciona a la persona que quieres hacer administrador.\n\nEjemplo: !promote @usuario'
+            text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜧𝜮𝜨𝑪𝜤𝜣𝜨𝜟 𝜟 𝑸𝑼𝜤𝜮𝜨 𝑸𝑼𝜤𝜮𝑹𝜮𝑺 𝜟𝑺𝑪𝜮𝜨𝑫𝜮𝑹 𝜟 𝜟𝑫𝜧\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
         });
     }
 
@@ -66,7 +66,7 @@ const botIsAdmin =
 
     if (!targetData) {
         return await sock.sendMessage(jid, {
-            text: '❌ No encontré a ese usuario en el grupo.'
+            text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮𝑺𝜮 𝜧𝜣𝜨𝜣 𝜨𝜣 𝜮𝑺𝜯𝜟 𝜮𝜨 𝜮𝑺𝜯𝜮 𝑮𝑹𝑼𝜬𝜣......\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
         });
     }
 
@@ -75,7 +75,7 @@ const botIsAdmin =
         targetData.admin === 'superadmin'
     ) {
         return await sock.sendMessage(jid, {
-            text: '⚠️ Ese usuario ya es administrador.'
+            text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮𝑺𝜮 𝜧𝜣𝜨𝜣 𝜳𝜟 𝜮𝑹𝜟 𝜟𝑫𝜧\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
         });
     }
 
@@ -88,14 +88,14 @@ const botIsAdmin =
         );
 
         await sock.sendMessage(jid, {
-            text: '👑 Usuario promovido a administrador correctamente.'
+            text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜢𝜮𝑪𝜢𝜣.. 𝑼𝑺𝑼𝜟𝑹𝜤𝜣 𝜟𝑺𝑪𝜮𝜨𝑫𝜤𝑫𝜣\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
         });
 
     } catch (error) {
         console.error('Error en promote:', error);
 
         await sock.sendMessage(jid, {
-            text: '❌ No pude darle administrador a ese usuario.'
+            text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮𝑹𝑹𝜣𝑹 !! 𝜨𝜣 𝜟𝑫𝜧\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
         });
     }
 }

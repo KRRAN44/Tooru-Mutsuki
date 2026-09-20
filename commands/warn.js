@@ -8,7 +8,7 @@ module.exports = {
     async execute({ sock, message, jid }) {
         if (!jid.endsWith('@g.us')) {
             return sock.sendMessage(jid, {
-                text: '❌ Este comando solo funciona en grupos.'
+                text:  `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜮 𝑹 𝑹 𝜣 𝑹 !!\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -23,7 +23,7 @@ module.exports = {
 
         if (!isAdmin) {
             return sock.sendMessage(jid, {
-                text: '❌ Solo los administradores pueden usar este comando.'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑺𝜣𝑳𝜣 𝜟𝑫𝜧𝜤𝜨𝑺 𝜝𝑹𝜣...\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -32,7 +32,7 @@ module.exports = {
 
         if (!mentioned || mentioned.length === 0) {
             return sock.sendMessage(jid, {
-                text: '❌ Menciona a la persona que quieres advertir.\n\nEjemplo: !warn @usuario'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜧𝜮𝜨𝑪𝜤𝜣𝜨𝜟 𝑸𝑼𝜤𝜮𝜨 𝑸𝑼𝜤𝜮𝑹𝜟𝑺 𝜟𝑫𝑽𝜮𝑹𝜯𝜤𝑹\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -59,7 +59,7 @@ module.exports = {
 
         if (!llegoAlLimite) {
             return sock.sendMessage(jid, {
-                text: `⚠️ Advertencia añadida. Va en ${nuevo}/${MAX_WARNS}.`
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n⚠️ 𝜟𝑫𝑽𝜮𝑹𝜯𝜮𝜨𝑪𝜤𝜟 𝜟Ñ𝜟𝑫𝜤𝑫𝜟${nuevo}/${MAX_WARNS}.\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -75,7 +75,7 @@ module.exports = {
 
         if (!botIsAdmin) {
             return sock.sendMessage(jid, {
-                text: '❌ Llegó al límite de advertencias, pero no soy administrador y no puedo expulsarlo.'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑳𝑳𝜮𝑮𝜣 𝜟𝑳 𝑳𝜤𝜧𝜤𝜯𝜮, 𝜬𝜮𝑹𝜣 𝜨𝜣 𝜧𝜮 𝜢𝜟𝜨 𝑫𝜟𝑫𝜣 𝜟𝑫𝜧𝜤𝜨...\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
@@ -83,13 +83,13 @@ module.exports = {
             await sock.groupParticipantsUpdate(jid, [userToWarn], 'remove');
 
             await sock.sendMessage(jid, {
-                text: '✅ El usuario llegó al límite de advertencias y fue expulsado.'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑺𝜮 𝜬𝜣𝑹𝜯𝜟𝜝𝜟 𝜧𝜟𝑳.....\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         } catch (error) {
             console.error('Error al expulsar por warns:', error);
 
             await sock.sendMessage(jid, {
-                text: '❌ Llegó al límite de advertencias, pero no pude expulsarlo.'
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑳𝑳𝜮𝑮𝜣 𝜟𝑳 𝑳𝜤𝜧𝜤𝜯𝜮 𝜬𝜮𝑹𝜣 𝑺𝑼𝑪𝜮𝑫𝜤𝜣 𝑼𝜨 𝜮𝑹𝑹𝜣𝑹\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
     }
