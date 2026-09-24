@@ -1,4 +1,4 @@
-module.exports = { name: 'kick', aliases: ['a-chingar-a-su-madre', 'GG-te-fuiste'],
+module.exports = { name: 'kick', aliases: ['a-chingar-a-su-madre', 'andate-al-pingo'],
 async execute({ sock, message, jid }) {
 
     // Solo funciona en grupos

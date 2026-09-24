@@ -1,3 +1,14 @@
+// Si el Node instalado es muy viejo, mejor avisar claro que tronar feo más adelante
+const nodeVersion = process.versions.node
+const [nodeMajor, nodeMinor] = nodeVersion.split('.').map(Number)
+
+if (nodeMajor < 20 || (nodeMajor === 20 && nodeMinor < 9)) {
+  console.error(`\n❌ Este bot necesita Node.js 20.9.0 o más nuevo (lo piden baileys y sharp).`)
+  console.error(`   Tienes instalada la v${nodeVersion}.`)
+  console.error(`   Descarga una versión más nueva en https://nodejs.org y vuelve a intentar.\n`)
+  process.exit(1)
+}
+// bot tooru-mutsuki
 const { Boom } = require('@hapi/boom')
   const P = require('pino')
   const qrcode = require('qrcode-terminal')
@@ -44,8 +55,9 @@ const { Boom } = require('@hapi/boom')
     }
 
     readFolder(commandsPath)
-    console.log(`${commands.size} comandos cargados.`)
-
+    console.log(`┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢`)
+    console.log(`𝜢𝜮𝑪𝜢𝜣,${commands.size}  𝑪𝜣𝜧𝜟𝜨𝑫𝜣𝑺 𝑪𝜟𝑹𝑮𝜟𝑫𝜣𝑺...`)
+    console.log(`┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`)
     return commands
   }
 
@@ -137,6 +149,19 @@ const { Boom } = require('@hapi/boom')
               console.error('Error al borrar mensaje de usuario muteado:', error);
             }
             return;
+          }
+                    // Antilink: si está activado en el grupo, borra cualquier mensaje con https://
+          if (config.antilink?.[jid]?.enabled) {
+            const contenido = getMessageText(message);
+
+            if (contenido.includes('https://')) {
+              try {
+                await sock.sendMessage(jid, { delete: message.key });
+              } catch (error) {
+                console.error('Error al borrar mensaje con link:', error);
+              }
+              return;
+            }
           }
         }
       }
