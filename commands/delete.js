@@ -1,6 +1,6 @@
 module.exports = {
     name: 'delete',
-    aliases: ['del', 'd'],
+    aliases: ['DW', 'd'],
 
     async execute({ sock, message, jid }) {
         if (!jid.endsWith('@g.us')) {

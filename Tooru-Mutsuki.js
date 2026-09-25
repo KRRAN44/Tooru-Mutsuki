@@ -18,6 +18,44 @@ const { Boom } = require('@hapi/boom')
   const PREFIX = '!'
   const logger = P({ level: 'silent' })
 
+  // Funciones para manejar el contador de mensajes
+  function cargarActivos() {
+    const activosPath = path.join(__dirname, 'activos.json')
+    if (!fs.existsSync(activosPath)) {
+      return {}
+    }
+    try {
+      return JSON.parse(fs.readFileSync(activosPath, 'utf8'))
+    } catch (error) {
+      console.error('Error al cargar activos.json:', error)
+      return {}
+    }
+  }
+
+  function guardarActivos(activos) {
+    const activosPath = path.join(__dirname, 'activos.json')
+    try {
+      fs.writeFileSync(activosPath, JSON.stringify(activos, null, 2), 'utf8')
+    } catch (error) {
+      console.error('Error al guardar activos.json:', error)
+    }
+  }
+
+  function incrementarContador(jid, usuario) {
+    const activos = cargarActivos()
+    
+    if (!activos[jid]) {
+      activos[jid] = {}
+    }
+    
+    if (!activos[jid][usuario]) {
+      activos[jid][usuario] = 0
+    }
+    
+    activos[jid][usuario]++
+    guardarActivos(activos)
+  }
+
   // Carga todos los comandos .js de src/commands
   function loadCommands() {
     const commands = new Map()
@@ -136,6 +174,10 @@ const { Boom } = require('@hapi/boom')
 
       if (jid.endsWith('@g.us')) {
         const autor = message.key.participant || message.key.remoteJid;
+        
+        // Incrementar el contador de mensajes
+        incrementarContador(jid, autor);
+        
         const configPath = path.join(__dirname, 'config.json');
 
         if (fs.existsSync(configPath)) {

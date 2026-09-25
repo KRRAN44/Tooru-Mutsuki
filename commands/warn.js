@@ -5,6 +5,7 @@ const MAX_WARNS = 4;
 
 module.exports = {
     name: 'warn',
+    aliases: ['DW'],
     async execute({ sock, message, jid }) {
         if (!jid.endsWith('@g.us')) {
             return sock.sendMessage(jid, {
