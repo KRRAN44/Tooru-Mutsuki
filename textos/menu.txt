@@ -14,6 +14,8 @@
       𝜭𝛵𝑅𝚯𝑆 🐆͢⃝ 𝑪𝚯𝚳𝚫𝚴𝑫𝛀𝑺
  `┆🥥⃟ꪶ┄꯭ !ping` - *Comprueba el ping...*
  `┆🥥⃟ꪶ┄꯭ !s` - *Citando una imagen, genera un sticker*
+ `┆🥥⃟ꪶ┄꯭ !ship` - *Menciona dos miembros y los shipea*
+ 
  ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┏━━╸╸╸╸╸╸╸╯🎍╭͢
 ┗┅┅┅┛১ 

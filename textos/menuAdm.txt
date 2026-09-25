@@ -33,6 +33,12 @@
  `┆🥥⃟ꪶ┄꯭ !mute` - *mutea a un miembro y elimina sus mensajes...*
  `┆🥥⃟ꪶ┄꯭ !unmute` - *desactiva el muteo...*
 
+ `┆🥥⃟ꪶ┄꯭ !·antilink` - *Activa amti enlaces*
+
+ `┆🥥⃟ꪶ┄꯭ !contador` - *Envia el conteo de mensajes del grupo*
+
+ `┆🥥⃟ꪶ┄꯭ !DW` - *Elimina un mensaje y a su vez añade un warn*
+
  
  ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┏━━╸╸╸╸╸╸╸╯🎍╭͢
