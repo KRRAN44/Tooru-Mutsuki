@@ -20,22 +20,26 @@ pkg update && pkg upgrade -y
 ```bash
 pkg install -y git nodejs libvips python make clang
 ```
-4. - Clona el repositorio
+4 - Instala ffmpeg
+```bash
+`kg install ffmpeg
+```
+5. - Clona el repositorio
 ```bash
 git clone https://github.com/KRRAN44/Tooru-Mutsuki.git 
 ```
-5. - Abre la carpeta
+6. - Abre la carpeta
 ```bash
 cd Tooru-Mutsuki
 ```
-6. - Instala librerias
+7. - Instala librerias
 ```bash
 npm install
 ```
 ```bash
 npm install sharp @img/sharp-wasm32
 ```
-7. - Inicia bot
+8. - Inicia bot
 ```bash
 node Tooru-Mutsuki.js
 ```

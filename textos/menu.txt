@@ -15,6 +15,7 @@
  `┆🥥⃟ꪶ┄꯭ !ping` - *Comprueba el ping...*
  `┆🥥⃟ꪶ┄꯭ !s` - *Citando una imagen, genera un sticker*
  `┆🥥⃟ꪶ┄꯭ !ship` - *Menciona dos miembros y los shipea*
+ `┆🥥⃟ꪶ┄꯭ !ver` - *Recupera fotos de ver una vez*
  
  ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┏━━╸╸╸╸╸╸╸╯🎍╭͢

@@ -1,4 +1,9 @@
-const sharp = require('sharp');
+const fs = require('fs');
+const path = require('path');
+const { exec } = require('child_process');
+const { promisify } = require('util');
+
+const execAsync = promisify(exec);
 
 module.exports = {
     name: 'sticker',
@@ -10,37 +15,67 @@ module.exports = {
         const contextInfo = message.message?.extendedTextMessage?.contextInfo;
         const quoted = contextInfo?.quotedMessage;
 
-        // Mensaje del que hay que sacar la imagen: el actual, o el citado
+        // Mensaje del que hay que sacar el media: el actual, o el citado
         const mediaMessage = quoted
             ? { key: message.key, message: quoted }
             : message;
 
         const tieneImagen = mediaMessage.message?.imageMessage;
+        const tieneVideo = mediaMessage.message?.videoMessage;
+        const tieneGif = mediaMessage.message?.gifMessage;
 
-        if (!tieneImagen) {
+        if (!tieneImagen && !tieneVideo && !tieneGif) {
             return sock.sendMessage(jid, {
-                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑹𝜮𝑺𝜬𝜣𝜨𝑫𝜮 𝑼𝜨𝜟 𝜤𝜧𝜟𝑮𝜮𝜨 𝑪𝜣𝜨 !𝑺 𝜣 !𝑺𝜯𝜤𝑪𝜥𝜮𝑹\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\nResponde una imagen, video o GIF con !s o !sticker\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
 
         try {
             const buffer = await downloadMediaMessage(mediaMessage, 'buffer', {});
 
-            const webp = await sharp(buffer)
-                .resize(512, 512, {
-                    fit: 'contain',
-                    background: { r: 0, g: 0, b: 0, alpha: 0 }
-                })
-                .webp()
-                .toBuffer();
+            // Usar ffmpeg para TODO (imágenes, videos, GIFs)
+            const webp = await procesarMediaAWebp(buffer, tieneImagen);
 
             await sock.sendMessage(jid, { sticker: webp });
         } catch (error) {
             console.error('Error creando sticker:', error);
 
             await sock.sendMessage(jid, {
-                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝜨𝜣 𝑺𝜮 𝜬𝑼𝜮𝑫𝜮 𝜢𝜟𝑪𝜮𝑹 𝑺𝜯𝜤𝑪𝜥𝜮𝑹\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
+                text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\nNo se puede hacer sticker de esto...\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
             });
         }
     }
-}; 
+};
+
+// Función para convertir cualquier media (imagen/video/GIF) a WebP con ffmpeg
+async function procesarMediaAWebp(buffer, esImagen) {
+    const inputPath = path.join(__dirname, `../temp_input_${Date.now()}.tmp`);
+    const outputPath = path.join(__dirname, `../temp_output_${Date.now()}.webp`);
+
+    try {
+        // Guardar buffer como archivo temporal
+        fs.writeFileSync(inputPath, buffer);
+
+        // Usar ffmpeg para convertir a WebP
+        // Para imágenes: convierte directamente
+        // Para videos/GIFs: convierte a WebP animado
+        const comando = `ffmpeg -i "${inputPath}" -vf "scale=512:512:force_original_aspect_ratio=decrease,pad=512:512:(ow-iw)/2:(oh-ih)/2:black" -loop 0 -vcodec libwebp -y "${outputPath}" 2>/dev/null`;
+
+        await execAsync(comando, { timeout: 30000 });
+
+        // Leer el archivo generado
+        const webpBuffer = fs.readFileSync(outputPath);
+
+        // Limpiar archivos temporales
+        fs.unlinkSync(inputPath);
+        fs.unlinkSync(outputPath);
+
+        return webpBuffer;
+    } catch (error) {
+        // Limpiar si hay error
+        if (fs.existsSync(inputPath)) fs.unlinkSync(inputPath);
+        if (fs.existsSync(outputPath)) fs.unlinkSync(outputPath);
+
+        throw new Error(`Error al procesar media: ${error.message}`);
+    }
+} 

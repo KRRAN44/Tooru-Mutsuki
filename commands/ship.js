@@ -51,8 +51,11 @@ module.exports = {
         // Elegir un mensaje al azar
         const mensajeAleatorio = mensajes[Math.floor(Math.random() * mensajes.length)];
 
-        // Armar el mensaje con las dos personas y el corazón
-        const mensajeFinal = `${persona1.id} ❤️ ${persona2.id}\n${mensajeAleatorio}`;
+        // Extraer solo los números de los IDs para mostrar en el texto
+        const numero1 = persona1.id.split('@')[0];
+        const numero2 = persona2.id.split('@')[0];
+
+        const mensajeFinal = `@${numero1} ❤️ @${numero2}\n${mensajeAleatorio}`;
 
         try {
             await sock.sendMessage(jid, {
