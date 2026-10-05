@@ -36,8 +36,7 @@
  `┆🥥⃟ꪶ┄꯭ !·antilink` - *Activa amti enlaces*
 
  `┆🥥⃟ꪶ┄꯭ !contador` - *Envia el conteo de mensajes del grupo*
-
- `┆🥥⃟ꪶ┄꯭ !DW` - *Elimina un mensaje y a su vez añade un warn*
+ `┆🥥⃟ꪶ┄꯭ !Rcontador` - *reinicia el contador*
 
  
  ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
