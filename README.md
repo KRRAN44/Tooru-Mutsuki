@@ -22,7 +22,7 @@ pkg install -y git nodejs libvips python make clang
 ```
 4 - Instala ffmpeg
 ```bash
-`kg install ffmpeg
+pkg install ffmpeg
 ```
 5. - Clona el repositorio
 ```bash

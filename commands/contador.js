@@ -22,22 +22,24 @@ module.exports = {
                 activos = JSON.parse(fs.readFileSync(activosPath, 'utf8'));
             }
 
-            // Obtener los datos del grupo actual
+            // Combinar los mensajes registrados con todos los miembros actuales.
+            // Quienes todavía no tienen mensajes en activos.json empiezan en 0.
+            const metadata = await sock.groupMetadata(jid);
             const datosGrupo = activos[jid] || {};
-            
-            if (Object.keys(datosGrupo).length === 0) {
+            const usuarios = (metadata.participants || [])
+                .map(participante => participante.id)
+                .filter(Boolean)
+                .map(usuario => [usuario, Number(datosGrupo[usuario]) || 0])
+                .sort((a, b) => b[1] - a[1]);
+
+            if (usuarios.length === 0) {
                 return await sock.sendMessage(jid, {
-                    text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑺𝜤𝜨 𝑫𝜟𝜯𝜣𝑺 𝑫𝜮 𝜧𝜤𝜮𝜧𝜝𝑹𝜣𝑺...\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-`
+                    text: `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n𝑺𝜤𝜨 𝑴𝜤𝜮𝜧𝜝𝑹𝜣𝑺 𝜮𝜨 𝜮𝑳 𝑮𝑹𝑼𝜫𝜣...\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈`
                 });
             }
 
-            // Ordenar por cantidad de mensajes (descendente)
-            const usuarios = Object.entries(datosGrupo)
-                .sort((a, b) => b[1] - a[1]);
-
             const LIMITE = 30;
-            let mensaje = `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n📊 *𝜧𝑺𝑮 𝑪𝜣𝑼𝜨𝜯...*\n*𝑳𝜤𝜧𝜤𝜯𝜮: ${LIMITE}*\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n\n`;
+            let mensaje = `┗━━╸╸╸╸╸╸╸╸╸╸╸╸╸╸╸╯🎍╭͢\n📊 *𝜧𝑺𝑮 𝑪𝜣𝑼𝜨𝜯...*\n*𝑳𝜤𝜧𝜤𝜯𝜮: ${LIMITE}*\n*Miembros del grupo: ${usuarios.length}*\n┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n\n`;
 
             const mentions = [];
             
