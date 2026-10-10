@@ -14,15 +14,15 @@ termux-setup-storage
 ```
 2. - Instala pkg 
 ```bash
-pkg update && pkg upgrade -y
+
 ```
 3. - Instala Node 
 ```bash
-pkg install -y git nodejs libvips python make clang
+
 ```
 4 - Instala ffmpeg
 ```bash
-pkg install ffmpeg
+
 ```
 5. - Clona el repositorio
 ```bash
@@ -34,10 +34,10 @@ cd Tooru-Mutsuki
 ```
 7. - Instala librerias
 ```bash
-npm install
+
 ```
 ```bash
-npm install sharp @img/sharp-wasm32
+
 ```
 8. - Inicia bot
 ```bash
