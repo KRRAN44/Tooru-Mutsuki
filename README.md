@@ -12,34 +12,19 @@
 ```bash
 termux-setup-storage
 ```
-2. - Instala pkg 
+2. - Clona el repositorio
 ```bash
-
+git clone https://github.com/KRRAN44/Tooru-Mutsuki.git
 ```
-3. - Instala Node 
-```bash
-
-```
-4 - Instala ffmpeg
-```bash
-
-```
-5. - Clona el repositorio
-```bash
-git clone https://github.com/KRRAN44/Tooru-Mutsuki.git 
-```
-6. - Abre la carpeta
+3. - Entra a la carpeta
 ```bash
 cd Tooru-Mutsuki
 ```
-7. - Instala librerias
+4. - Da permiso al bash
 ```bash
-
+chmod +x Tooru-Mutsuki.sh
 ```
+5. - Ejecuta el bash
 ```bash
-
-```
-8. - Inicia bot
-```bash
-node Tooru-Mutsuki.js
+./Tooru-Mutsuki.sh
 ```
