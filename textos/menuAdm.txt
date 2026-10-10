@@ -37,6 +37,12 @@
 
  `┆🥥⃟ꪶ┄꯭ !contador` - *Envia el conteo de mensajes del grupo*
  `┆🥥⃟ꪶ┄꯭ !Rcontador` - *reinicia el contador*
+ 
+ `┆🥥⃟ꪶ┄꯭ !and` - *Borra un mensaje y a su vez añade un warn*
+
+ `┆🥥⃟ꪶ┄꯭ !cerrar` - *Cierra el grupo*
+ `┆🥥⃟ꪶ┄꯭ !abrir` - *Abre el grupo*
+
 
  
  ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
