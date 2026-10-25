@@ -7,7 +7,7 @@
 ┗━━╸╸╸╸╸╸╸╯🎍╭͢
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
       𝚳𝚵𝚴𝐔𝘚 🐆͢⃝ 𝐃𝚰𝐒𝐏𝛀𝚴𝚰𝐁𝐋𝚺𝘚
- `┆🥥⃟ꪶ┄꯭ !menuAdm` - *Envia menu de admins...*
+ `┆🥥⃟ꪶ┄꯭ !menu1` - *Envia menu de admins...*
 
 
 
@@ -24,7 +24,3 @@
 > *CANAL DEL BOT <3*                                                                     `https://whatsapp.com/channel/0029VbD6l1qKwqSTG4FmPK2D`
 
 > *OWNER* : `wa.me/4915124477722?text=Tooru%20Mutsuki`
-
-
-
-

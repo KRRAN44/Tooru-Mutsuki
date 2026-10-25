@@ -57,15 +57,21 @@ echo -e "${RED}
                                       ▒░██                                      
                                        ▓█${NOCOLOR}"
 
-echo -e "${CYAN}[🍀] $ ACTUALIZANDO TERMUX${NOCOLOR}"                                
+echo -e "${CYAN}[🍀] $ ACTUALIZANDO TERMUX${NOCOLOR}" 
+echo                               
 pkg update
 pkg upgrade -y
 echo -e "${CYAN}[🍀] $ INSTALANDO PAQUETES${NOCOLOR}"
+echo
 pkg install -y git nodejs libvips python make clang
 echo -e "${CYAN}[🍀] $ INSTALANDO FFMPEG${NOCOLOR}"
+echo
 pkg install ffmpeg -y
 echo -e "${CYAN}[🍀] $ INSTALANDO NPM${NOCOLOR}"
+echo
+npm init -y 
 npm install
 npm install sharp @img/sharp-wasm32
 echo -e "${CYAN}[🍀] $ INICIANDO BOT....${NOCOLOR}"
-node Tooru-Mutsuki.js
+echo
+node TophBeifong.js

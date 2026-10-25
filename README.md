@@ -1,4 +1,4 @@
-# TOORU MUTSUKI by KN4424
+# TOPH BEIFONG by KN4424
 <a href="https://wa.me/4915124477722">
   <p> CONTACTO KN4424 🍀🇲🇽 </p>
 </a>
@@ -18,13 +18,10 @@ git clone https://github.com/KRRAN44/Tooru-Mutsuki.git
 ```
 3. - Entra a la carpeta
 ```bash
-cd Tooru-Mutsuki
+cd Toph-WA
 ```
 4. - Da permiso al bash
 ```bash
-chmod +x Tooru-Mutsuki.sh
+chmod +x toph.sh && ./Tooru-Mutsuki.sh
 ```
-5. - Ejecuta el bash
-```bash
-./Tooru-Mutsuki.sh
-```
+

@@ -2,13 +2,13 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = {
-    name: 'menuAdm',
+    name: 'menu1',
     aliases: ['adm', 'xyz'],
 
     async execute({ sock, jid }) {
 
-        const menuPath = path.join(__dirname, '../textos/menuAdm.txt');
-        const imagePath = path.join(__dirname, '../img/menuadm.jpeg');
+        const menuPath = path.join(__dirname, '../textos/menu1.txt');
+        const imagePath = path.join(__dirname, '../img/menu1.jpeg');
 
         const menu = fs.readFileSync(menuPath, 'utf8');
         const image = fs.readFileSync(imagePath);

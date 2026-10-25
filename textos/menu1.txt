@@ -42,9 +42,6 @@
 
  `┆🥥⃟ꪶ┄꯭ !cerrar` - *Cierra el grupo*
  `┆🥥⃟ꪶ┄꯭ !abrir` - *Abre el grupo*
-
-
- 
  ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┏━━╸╸╸╸╸╸╸╯🎍╭͢
 ┗┅┅┅┛১ 
